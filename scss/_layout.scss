@@ -1,0 +1,355 @@
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-sm;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: $spacing-lg;
+  @include heading($font-size-xxl);
+  text-transform: uppercase;
+  position: relative;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: $primary-gradient;
+    margin: $spacing-sm auto 0;
+  }
+}
+
+// Header
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba($dark-color, 0.9);
+  padding: $spacing-sm 0;
+  transition: all $transition-normal;
+  
+  .container {
+    @include flex(row, space-between, center);
+  }
+  
+  &__logo {
+    h1 {
+      color: $white;
+      font-size: $font-size-xl;
+      
+      span {
+        color: $primary-color;
+      }
+    }
+  }
+  
+  &__nav {
+    display: none;
+    
+    @include respond-to(md) {
+      display: block;
+    }
+    
+    ul {
+      @include flex(row, center, center);
+      
+      li {
+        margin: 0 $spacing-sm;
+        
+        a {
+          color: $white;
+          font-weight: 600;
+          text-transform: uppercase;
+          font-size: $font-size-sm;
+          padding: $spacing-xs 0;
+          position: relative;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: $primary-color;
+            transition: width $transition-normal;
+          }
+          
+          &:hover::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  
+  &__toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    
+    @include respond-to(md) {
+      display: none;
+    }
+    
+    span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: $white;
+      border-radius: 3px;
+      transition: all $transition-normal;
+    }
+  }
+}
+
+// Hero Section
+.hero {
+  height: 100vh;
+  @include bg-image('https://source.unsplash.com/random/1920x1080/?concert', cover, center);
+  @include overlay(rgba($dark-color, 0.7));
+  position: relative;
+  
+  &__content {
+    position: relative;
+    z-index: 2;
+    color: $white;
+    text-align: center;
+    @include absolute-center;
+    width: 90%;
+    max-width: 800px;
+    
+    h1 {
+      @include heading($font-size-xxl * 1.5);
+      text-transform: uppercase;
+      margin-bottom: $spacing-sm;
+      
+      @include respond-to(md) {
+        font-size: $font-size-xxl * 2;
+      }
+    }
+    
+    h2 {
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-md;
+      font-weight: 400;
+    }
+  }
+}
+
+// Lineup Section
+.lineup {
+  background-color: $light-color;
+  
+  &__grid {
+    @include grid(1, $spacing-md);
+    
+    @include respond-to(sm) {
+      @include grid(2, $spacing-md);
+    }
+    
+    @include respond-to(lg) {
+      @include grid(3, $spacing-md);
+    }
+  }
+}
+
+// Schedule Section
+.schedule {
+  background-color: $white;
+  
+  &__tabs {
+    @include flex(row, center, center);
+    margin-bottom: $spacing-lg;
+    border-bottom: 1px solid rgba($dark-color, 0.1);
+  }
+  
+  &__tab {
+    background: none;
+    border: none;
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-lg;
+    font-weight: 600;
+    color: $text-color;
+    cursor: pointer;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: $primary-color;
+      transition: width $transition-normal;
+    }
+    
+    &.active {
+      color: $primary-color;
+      
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+  
+  &__content {
+    display: none;
+    
+    &.active {
+      display: block;
+    }
+  }
+  
+  &__item {
+    @include flex(row, flex-start, flex-start);
+    margin-bottom: $spacing-md;
+    padding-bottom: $spacing-md;
+    border-bottom: 1px solid rgba($dark-color, 0.1);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  &__time {
+    font-weight: 700;
+    color: $primary-color;
+    min-width: 100px;
+    font-size: $font-size-lg;
+  }
+  
+  &__info {
+    h3 {
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-xs;
+    }
+    
+    p {
+      color: rgba($text-color, 0.7);
+    }
+  }
+}
+
+// Tickets Section
+.tickets {
+  background: $primary-gradient;
+  color: $white;
+  
+  .section-title::after {
+    background-color: $white;
+  }
+  
+  &__grid {
+    @include grid(1, $spacing-md);
+    
+    @include respond-to(md) {
+      @include grid(3, $spacing-md);
+    }
+  }
+}
+
+// Contact Section
+.contact {
+  background-color: $light-color;
+  
+  &__grid {
+    @include grid(1, $spacing-lg);
+    
+    @include respond-to(lg) {
+      @include grid(2, $spacing-lg);
+    }
+  }
+}
+
+// Footer
+.footer {
+  background-color: $dark-color;
+  color: $white;
+  padding-top: $spacing-lg;
+  
+  .container {
+    @include flex(column, flex-start, flex-start);
+    
+    @include respond-to(md) {
+      @include flex(row, space-between, flex-start);
+    }
+  }
+  
+  &__logo {
+    margin-bottom: $spacing-md;
+    
+    h2 {
+      font-size: $font-size-xl;
+      
+      span {
+        color: $primary-color;
+      }
+    }
+  }
+  
+  &__links {
+    @include flex(column, flex-start, flex-start);
+    
+    @include respond-to(sm) {
+      @include flex(row, space-between, flex-start);
+      width: 100%;
+      max-width: 500px;
+    }
+  }
+  
+  &__nav {
+    margin-bottom: $spacing-md;
+    
+    h3 {
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-sm;
+      position: relative;
+      
+      &::after {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 2px;
+        background-color: $primary-color;
+        margin-top: $spacing-xs;
+      }
+    }
+    
+    ul {
+      li {
+        margin-bottom: $spacing-xs;
+        
+        a {
+          color: rgba($white, 0.7);
+          transition: color $transition-normal;
+          
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+  
+  &__bottom {
+    background-color: darken($dark-color, 5%);
+    padding: $spacing-md 0;
+    margin-top: $spacing-lg;
+    text-align: center;
+    
+    p {
+      font-size: $font-size-sm;
+      color: rgba($white, 0.7);
+    }
+  }
+}

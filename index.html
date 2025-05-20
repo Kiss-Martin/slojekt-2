@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METAL MAYHEM 2023 | The Ultimate Metal Festival</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__logo">
+                <h1>METAL MAYHEM</h1>
+            </div>
+            <nav class="header__nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#lineup">Bands</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#tickets">Tickets</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header__toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#lineup">Bands</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#tickets">Tickets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="overlay"></div>
+
+    <section id="home" class="hero">
+        <div class="hero__content">
+            <div class="hero__logo">
+                <img src="https://via.placeholder.com/500x300/000000/d2b48c?text=METAL+MAYHEM" alt="Metal Mayhem Logo">
+            </div>
+            <h1 class="glow">METAL MAYHEM 2023</h1>
+            <h2>August 13-15, 2023 • Hellfire Grounds</h2>
+            <div class="hero__cta">
+                <a href="#tickets" class="btn">GET YOUR TICKETS</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="lineup" class="lineup">
+        <div class="container">
+            <h2 class="section-title">LINE<span>UP</span></h2>
+            <div class="lineup__grid">
+                <div class="artist">
+                    <div class="artist__image">
+                        <img src="https://via.placeholder.com/300x300/000000/d2b48c?text=HEADLINER" alt="Headliner Band">
+                    </div>
+                    <div class="artist__info">
+                        <h3>DEATH BRINGERS</h3>
+                        <p>Friday, 11:00 PM</p>
+                    </div>
+                </div>
+                <div class="artist">
+                    <div class="artist__image">
+                        <img src="https://via.placeholder.com/300x300/000000/d2b48c?text=BAND" alt="Metal Band">
+                    </div>
+                    <div class="artist__info">
+                        <h3>ETERNAL DARKNESS</h3>
+                        <p>Saturday, 10:30 PM</p>
+                    </div>
+                </div>
+                <div class="artist">
+                    <div class="artist__image">
+                        <img src="https://via.placeholder.com/300x300/000000/d2b48c?text=BAND" alt="Metal Band">
+                    </div>
+                    <div class="artist__info">
+                        <h3>BLOOD RITUAL</h3>
+                        <p>Saturday, 8:00 PM</p>
+                    </div>
+                </div>
+                <div class="artist">
+                    <div class="artist__image">
+                        <img src="https://via.placeholder.com/300x300/000000/d2b48c?text=BAND" alt="Metal Band">
+                    </div>
+                    <div class="artist__info">
+                        <h3>IRON FIST</h3>
+                        <p>Sunday, 9:00 PM</p>
+                    </div>
+                </div>
+                <div class="artist">
+                    <div class="artist__image">
+                        <img src="https://via.placeholder.com/300x300/000000/d2b48c?text=BAND" alt="Metal Band">
+                    </div>
+                    <div class="artist__info">
+                        <h3>SKULL CRUSHER</h3>
+                        <p>Sunday, 11:30 PM</p>
+                    </div>
+                </div>
+                <div class="artist">
+                    <div class="artist__image">
+                        <img src="https://via.placeholder.com/300x300/000000/d2b48c?text=BAND" alt="Metal Band">
+                    </div>
+                    <div class="artist__info">
+                        <h3>HELLFIRE</h3>
+                        <p>Friday, 9:30 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="lineup__more">
+                <a href="#" class="btn">VIEW ALL BANDS</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule" class="schedule">
+        <div class="container">
+            <h2 class="section-title">SCHEDULE</h2>
+            <div class="schedule__tabs">
+                <button class="schedule__tab active" data-day="friday">
+                    <span class="day-name">Friday</span>
+                    <span class="day-date">AUG 13</span>
+                </button>
+                <button class="schedule__tab" data-day="saturday">
+                    <span class="day-name">Saturday</span>
+                    <span class="day-date">AUG 14</span>
+                </button>
+                <button class="schedule__tab" data-day="sunday">
+                    <span class="day-name">Sunday</span>
+                    <span class="day-date">AUG 15</span>
+                </button>
+            </div>
+            <div class="schedule__content active" id="friday">
+                <div class="schedule__item">
+                    <div class="schedule__time">
+                        <span>7:00</span>
+                        <span>PM</span>
+                    </div>
+                    <div class="schedule__info">
+                        <h3>GATES OPEN</h3>
+                        <p>Main Entrance</p>
+                    </div>
+                    <div class="schedule__stage">
+                        <span class="stage-badge">ENTRY</span>
+                    </div>
+                </div>
+                <div class="schedule__item">
+                    <div class="schedule__time">
+                        <span>8:00</span>
+                        <span>PM</span>
+                    </div>
+                    <div class="schedule__info">
+                        <h3>DEMON HUNTERS</h3>
+                        <p>Inferno Stage</p>
+                    </div>
+                    <div class="schedule__stage">
+                        <span class="stage-badge">INFERNO</span>
+                    </div>
+                </div>
+                <div class="schedule__item">
+                    <div class="schedule__time">
+                        <span>9:30</span>
+                        <span>PM</span>
+                    </div>
+                    <div class="schedule__info">
+                        <h3>HELLFIRE</h3>
+                        <p>Main Stage</p>
+                    </div>
+                    <div class="schedule__stage">
+                        <span class="stage-badge">MAIN</span>
+                    </div>
+                </div>
+                <div class="schedule__item">
+                    <div class="schedule__time">
+                        <span>11:00</span>
+                        <span>PM</span>
+                    </div>
+                    <div class="schedule__info">
+                        <h3>DEATH BRINGERS</h3>
+                        <p>Main Stage</p>
+                    </div>
+                    <div class="schedule__stage">
+                        <span class="stage-badge">MAIN</span>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__content" id="saturday">
+                <div class="schedule__item">
+                    <div class="schedule__time">
+                        <span>6:00</span>
+                        <span>PM</span>
+                    </div>
+                    <div class="schedule__info">
+                        <h3>GATES OPEN</h3>
+                        <p>Main Entrance</p>
+                    </div>
+                    <div class="schedule__stage">
+                        <span class="stage-badge">ENTRY</span>
+                    </div>
+                </div>
+                <div class="schedule__item">
+                    <div class="schedule__time">
+                        <span>7:00</span>
+                        <span>PM</span>
+                    </div>
+                    <div class="schedule__info">
+                        <h3>METAL MILITIA</h3>
+                        <p>Inferno Stage</p>
+                    </div>
+                    <div class="schedule__stage">
+                        <span class="stage-badge">INFERNO</span>
+                    </div>
+                </div>
+                <div class="schedule__item">
+                    <div class="schedule__time">
+                        <span>8:00</span>
+                        <span>PM</span>
+                    </div>
+                    <div class="schedule__info">
+                        <h3>BLOOD RITUAL</h3>
+                        <p>Main Stage</p>
+                    </div>
+                    <div class="schedule__stage">
+                        <span class="stage-badge">MAIN</span>
+                    </div>
+                </div>
+                <div class="schedule__item">
+                    <div class="schedule__time">
+                        <span>10:30</span>
+                        <span>PM</span>
+                    </div>
+                    <div class="schedule__info">
+                        <h3>ETERNAL DARKNESS</h3>
+                        <p>Main Stage</p>
+                    </div>
+                    <div class="schedule__stage">
+                        <span class="stage-badge">MAIN</span>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule__content" id="sunday">
+                <div class="schedule__item">
+                    <div class="schedule__time">
+                        <span>6:00</span>
+                        <span>PM</span>
+                    </div>
+                    <div class="schedule__info">
+                        <h3>GATES OPEN</h3>
+                        <p>Main Entrance</p>
+                    </div>
+                    <div class="schedule__stage">
+                        <span class="stage-badge">ENTRY</span>
+                    </div>
+                </div>
+                <div class="schedule__item">
+                    <div class="schedule__time">
+                        <span>7:30</span>
+                        <span>PM</span>
+                    </div>
+                    <div class="schedule__info">
+                        <h3>DARK MESSIAH</h3>
+                        <p>Inferno Stage</p>
+                    </div>
+                    <div class="schedule__stage">
+                        <span class="stage-badge">INFERNO</span>
+                    </div>
+                </div>
+                <div class="schedule__item">
+                    <div class="schedule__time">
+                        <span>9:00</span>
+                        <span>PM</span>
+                    </div>
+                    <div class="schedule__info">
+                        <h3>IRON FIST</h3>
+                        <p>Main Stage</p>
+                    </div>
+                    <div class="schedule__stage">
+                        <span class="stage-badge">MAIN</span>
+                    </div>
+                </div>
+                <div class="schedule__item">
+                    <div class="schedule__time">
+                        <span>11:30</span>
+                        <span>PM</span>
+                    </div>
+                    <div class="schedule__info">
+                        <h3>SKULL CRUSHER</h3>
+                        <p>Main Stage</p>
+                    </div>
+                    <div class="schedule__stage">
+                        <span class="stage-badge">MAIN</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tickets" class="tickets">
+        <div class="container">
+            <h2 class="section-title">TICKETS</h2>
+            <div class="tickets__grid">
+                <div class="ticket">
+                    <h3>DAY PASS</h3>
+                    <div class="ticket__price">99</div>
+                    <ul>
+                        <li>Single day entry</li>
+                        <li>Access to all stages</li>
+                        <li>Food & drink vendors</li>
+                        <li>Official program</li>
+                    </ul>
+                    <a href="#" class="btn">BUY NOW</a>
+                </div>
+                <div class="ticket ticket--featured">
+                    <div class="ticket__badge">BEST VALUE</div>
+                    <h3>FULL FESTIVAL</h3>
+                    <div class="ticket__price">249</div>
+                    <ul>
+                        <li>3-day festival access</li>
+                        <li>Access to all stages</li>
+                        <li>Food & drink vendors</li>
+                        <li>Camping access</li>
+                        <li>Official merchandise pack</li>
+                        <li>Fast-track entry</li>
+                    </ul>
+                    <a href="#" class="btn">BUY NOW</a>
+                </div>
+                <div class="ticket">
+                    <h3>VIP PASS</h3>
+                    <div class="ticket__price">399</div>
+                    <ul>
+                        <li>3-day festival access</li>
+                        <li>VIP viewing areas</li>
+                        <li>Exclusive VIP lounge</li>
+                        <li>Free drinks package</li>
+                        <li>Meet & greet with bands</li>
+                        <li>Premium camping area</li>
+                        <li>Official merchandise pack</li>
+                    </ul>
+                    <a href="#" class="btn">BUY NOW</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">CONTACT</h2>
+            <div class="contact__grid">
+                <div>
+                    <div class="contact__item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>LOCATION</h3>
+                            <p>Hellfire Grounds, 666 Metal Road<br>Headbanger Valley, HM 66642</p>
+                        </div>
+                    </div>
+                    <div class="contact__item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>PHONE</h3>
+                            <p>+1 (666) 777-8888</p>
+                        </div>
+                    </div>
+                    <div class="contact__item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>EMAIL</h3>
+                            <p>info@metalmayhem.com</p>
+                        </div>
+                    </div>
+                    <div class="contact__social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact__form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__logo">
+                <h2>METAL MAYHEM</h2>
+            </div>
+            <nav class="footer__nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#lineup">Bands</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#tickets">Tickets</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="footer__social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="footer__copy">
+                <p>&copy; 2023 Metal Mayhem Festival. All rights reserved. | Website by <a href="#">Metal Web Designs</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for the website functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('sticky');
+                } else {
+                    header.classList.remove('sticky');
+                }
+            });
+
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.header__toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const overlay = document.querySelector('.overlay');
+            const body = document.body;
+
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                overlay.classList.toggle('active');
+                body.classList.toggle('no-scroll');
+            });
+
+            overlay.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                body.classList.remove('no-scroll');
+            });
+
+            // Schedule tabs
+            const scheduleTabs = document.querySelectorAll('.schedule__tab');
+            const scheduleContents = document.querySelectorAll('.schedule__content');
+
+            scheduleTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const day = tab.getAttribute('data-day');
+                    
+                    // Remove active class from all tabs and contents
+                    scheduleTabs.forEach(tab => tab.classList.remove('active'));
+                    scheduleContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    tab.classList.add('active');
+                    document.getElementById(day).classList.add('active');
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        mobileMenu.classList.remove('active');
+                        overlay.classList.remove('active');
+                        body.classList.remove('no-scroll');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
