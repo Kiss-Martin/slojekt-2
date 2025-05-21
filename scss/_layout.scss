@@ -114,7 +114,7 @@
 // Hero Section
 .hero {
   height: 100vh;
-  @include bg-image('https://source.unsplash.com/random/1920x1080/?concert', cover, center);
+  @include bg-image('https://img.freepik.com/free-photo/rusty-metallic-textured-background_23-2148846074.jpg?semt=ais_hybrid&w=740', cover, center);
   @include overlay(rgba($dark-color, 0.7));
   position: relative;
   

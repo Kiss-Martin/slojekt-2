@@ -214,7 +214,8 @@ section {
   @include flex(column, center, center);
   text-align: center;
   padding-top: 80px;
-  background-image: linear-gradient(rgba($black, 0.8), rgba($black, 0.9)), url('https://via.placeholder.com/1920x1080');
+  background-image: url('https://img.freepik.com/free-photo/rusty-metallic-textured-background_23-2148846074.jpg?semt=ais_hybrid&w=740') !important;
+  // linear-gradient(rgba($black, 0.8), rgba($black, 0.9)), 
   background-size: cover;
   background-position: center;
   
