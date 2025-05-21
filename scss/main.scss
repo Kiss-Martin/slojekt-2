@@ -3,14 +3,23 @@ $black: #000000;
 $dark-black: #0a0a0a;
 $medium-black: #121212;
 $white: #ffffff;
-$dark-brown: #2c1a0a;
+$dark-brown: #3d240e;
 $medium-brown: #5e3a1a;
-$light-brown: #8b5a2b;
-$tan: #d2b48c;
+$light-brown: #e28f41;
+$tan: #f7cc95;
 $cream: #f5f5dc;
 
-$font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-face {
+  font-family: 'Storm Gust';
+  src: url('/font/Storm\ Gust.ttf');
+}
+@font-face{
+  font-family: 'Anton';
+  src: url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+}
+
+$font-primary: 'Anton';
+$font-heading: 'Storm Gust';
 $transition: all 0.3s ease;
 
 // Mixins
@@ -626,6 +635,7 @@ section {
       color: $tan;
       margin-right: 1rem;
       transition: $transition;
+      border-radius: 50%;
       
       &:hover {
         border-color: $tan;
@@ -727,6 +737,7 @@ section {
       color: $tan;
       margin: 0 0.5rem;
       transition: $transition;
+      border-radius: 50%;
       
       &:hover {
         border-color: $tan;
