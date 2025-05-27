@@ -1,4 +1,17 @@
-// Variables
+@import 'variables';
+
+// Custom fonts
+@font-face {
+  font-family: 'Storm Gust';
+  src: url('/font/Storm\ Gust.ttf');
+}
+
+@font-face {
+  font-family: 'Anton';
+  src: url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+}
+
+// Color variables (overriding the red theme)
 $black: #000000;
 $dark-black: #0a0a0a;
 $medium-black: #121212;
@@ -8,912 +21,820 @@ $medium-brown: #5e3a1a;
 $light-brown: #e28f41;
 $tan: #f7cc95;
 $cream: #f5f5dc;
+$facebook: blue;
 
-@font-face {
-  font-family: 'Storm Gust';
-  src: url('/font/Storm\ Gust.ttf');
-}
-@font-face{
-  font-family: 'Anton';
-  src: url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-}
-
-$font-primary: 'Anton';
-$font-heading: 'Storm Gust';
-$transition: all 0.3s ease;
-
-// Mixins
-@mixin flex($direction: row, $justify: center, $align: center) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
-}
-
-@mixin respond-to($breakpoint) {
-  @if $breakpoint == "small" {
-    @media (min-width: 576px) { @content; }
-  } @else if $breakpoint == "medium" {
-    @media (min-width: 768px) { @content; }
-  } @else if $breakpoint == "large" {
-    @media (min-width: 992px) { @content; }
-  } @else if $breakpoint == "xlarge" {
-    @media (min-width: 1200px) { @content; }
-  }
-}
-
-// Base Styles and Reset
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: $font-primary;
-  line-height: 1.6;
-  color: $cream;
-  background-color: $black;
-  overflow-x: hidden;
-  font-weight: 300;
-  letter-spacing: 0.5px;
+    font-family: 'Storm Gust', Arial, sans-serif;
+    line-height: 1.6;
+    color: $cream;
+    background: $dark-black;
+    overflow-x: hidden;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: $transition;
-}
-
-ul, ol {
-  list-style: none;
-}
-
-button, input, textarea {
-  font-family: inherit;
-  font-size: inherit;
-  outline: none;
-  background: transparent;
-  color: $cream;
-  border: 1px solid $tan;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: $font-heading;
-  line-height: 1.2;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-section {
-  padding: 5rem 0;
-  position: relative;
-}
-
-// Layout
 .container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.section-title {
-  text-align: center;
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  position: relative;
-  letter-spacing: 5px;
-  color: $tan;
-  
-  span {
-    color: $light-brown;
-  }
+// Button styling
+button, input, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+    background: transparent;
+    color: $cream;
+    border: 1px solid $tan;
 }
 
 // Header
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  background-color: $black;
-  padding: 1rem 0;
-  transition: $transition;
-  border-bottom: 1px solid $dark-brown;
-  
-  .container {
-    @include flex(row, space-between, center);
-  }
-  
-  &__logo {
-    h1 {
-      color: $tan;
-      font-size: 1.8rem;
-      letter-spacing: 5px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba($black, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s ease;
+
+    &.sticky {
+        background: rgba($black, 0.95);
+        box-shadow: 0 2px 20px rgba($black, 0.5);
     }
-  }
-  
-  &__nav {
-    display: none;
-    
-    @include respond-to('medium') {
-      display: block;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 20px;
     }
-    
-    ul {
-      @include flex(row, center, center);
-      
-      li {
-        margin: 0 1rem;
-        
+
+    &__logo h1 {
+        color: $tan;
+        font-size: 1.8rem;
+        font-family: 'Storm Gust', sans-serif;
+        font-weight: 700;
+    }
+
+    &__nav ul {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+
         a {
-          color: $cream;
-          font-weight: 400;
-          text-transform: uppercase;
-          font-size: 0.875rem;
-          padding: 0.5rem 0;
-          position: relative;
-          letter-spacing: 2px;
-          
-          &:hover {
-            color: $tan;
-          }
+            color: $cream;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $light-brown;
+            }
         }
-      }
     }
-  }
-  
-  &__toggle {
-    @include flex(column, space-between, center);
-    width: 30px;
-    height: 21px;
-    cursor: pointer;
-    
-    @include respond-to('medium') {
-      display: none;
+
+    &__toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+
+        span {
+            width: 25px;
+            height: 3px;
+            background: $cream;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
     }
-    
-    span {
-      display: block;
-      width: 100%;
-      height: 1px;
-      background-color: $tan;
-      transition: $transition;
-    }
-  }
-  
-  &.sticky {
-    background-color: rgba($black, 0.95);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  }
 }
 
-// Hero Section
+// Mobile menu
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: rgba($dark-black, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    transition: right 0.3s ease;
+    padding-top: 80px;
+
+    &.active {
+        right: 0;
+    }
+
+    ul {
+        list-style: none;
+        padding: 2rem;
+
+        li {
+            margin: 1rem 0;
+
+            a {
+                color: $cream;
+                text-decoration: none;
+                font-size: 1.2rem;
+                display: block;
+                padding: 1rem;
+                border-radius: 5px;
+                transition: background 0.3s ease;
+
+                &:hover {
+                    background: rgba($light-brown, 0.2);
+                    color: $tan;
+                }
+            }
+        }
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($black, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+// Hero section with background
 .hero {
-  height: 100vh;
-  background-color: $black;
-  position: relative;
-  @include flex(column, center, center);
-  text-align: center;
-  padding-top: 80px;
-  background-image: url('https://img.freepik.com/free-photo/rusty-metallic-textured-background_23-2148846074.jpg?semt=ais_hybrid&w=740') !important;
-  // linear-gradient(rgba($black, 0.8), rgba($black, 0.9)), 
-  background-size: cover;
-  background-position: center;
-  
-  &__content {
-    position: relative;
-    z-index: 2;
-    color: $cream;
-    max-width: 800px;
-    padding: 0 20px;
-  }
-  
-  &__logo {
-    img {
-      max-width: 400px;
-      margin: 0 auto 2rem;
-    }
-  }
-  
-  h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    letter-spacing: 10px;
-    color: $tan;
-  }
-  
-  h2 {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    font-weight: 300;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: $cream;
-  }
-  
-  &__cta {
-    margin-top: 2rem;
-  }
-}
-
-// Buttons
-.btn {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transition: $transition;
-  cursor: pointer;
-  text-align: center;
-  font-size: 0.9rem;
-  border: 1px solid $tan;
-  background: transparent;
-  color: $tan;
-  
-  &:hover {
-    background: $tan;
-    color: $black;
-  }
-}
-
-// Lineup Section
-.lineup {
-  background-color: $black;
-  position: relative;
-  padding: 5rem 0;
-  
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 2rem;
-    
-    @include respond-to('small') {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    
-    @include respond-to('large') {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  &__more {
+    height: 100vh;
+    background-image: $main-background;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin-top: 3rem;
-  }
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba($dark-black, 0.6);
+        z-index: 1;
+    }
+
+    &__content {
+        position: relative;
+        z-index: 2;;
+    }
+
+    &__logo img {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 2rem;
+    }
+
+    h1 {
+        font-size: 4rem;
+        color: $tan;
+        font-family: 'Storm Gust', sans-serif;
+        font-weight: 700;
+        margin-bottom: 3rem;
+        text-shadow: 3px 3px 6px rgba($black, 0.8);
+
+        &.glow {
+            text-shadow: 0 0 20px rgba($light-brown, 0.5), 3px 3px 6px rgba($black, 0.8);
+        }
+    }
+
+    &__cta .btn {
+        background: transparent;
+        color: $cream;
+        border: 1px solid $tan;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: rgba($light-brown, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba($light-brown, 0.4);
+        }
+    }
+}
+
+// Sections
+section {
+    padding: 5rem 0;
+    background: $dark-black;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: $tan;
+    font-family: 'Storm Gust', sans-serif;
+    font-weight: 700;
+
+    span {
+        color: $light-brown;
+    }
+}
+
+// Lineup section
+.lineup {
+    background: $medium-black;
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
 }
 
 .artist {
-  background-color: $medium-black;
-  overflow: hidden;
-  transition: $transition;
-  border: 1px solid $dark-brown;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-color: $medium-brown;
-  }
-  
-  &__image {
-    position: relative;
+    background: rgba($dark-brown, 0.8);
+    border-radius: 10px;
     overflow: hidden;
-    
-    img {
-      width: 100%;
-      transition: $transition;
-      filter: grayscale(80%);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba($black, 0.3);
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 25px rgba($light-brown, 0.2);
     }
-  }
-  
-  &:hover &__image img {
-    filter: grayscale(0%);
-    transform: scale(1.05);
-  }
-  
-  &__info {
-    padding: 1.5rem;
-    text-align: center;
-  }
-  
-  h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: $tan;
-    letter-spacing: 3px;
-  }
-  
-  p {
-    color: $cream;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-  }
+
+    &__image {
+        height: 200px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+    }
+
+    &:hover &__image img {
+        transform: scale(1.1);
+    }
+
+    &__info {
+        padding: 1rem;
+
+        h3 {
+            color: $tan;
+            margin-bottom: 0.5rem;
+            font-family: 'Anton', sans-serif;
+            font-weight: 600;
+        }
+
+        p {
+            color: $cream;
+        }
+    }
+    &__time{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
 }
 
-// Schedule Section
+// Schedule section
 .schedule {
-  background-color: $medium-black;
-  position: relative;
-  border-top: 1px solid $dark-brown;
-  border-bottom: 1px solid $dark-brown;
-  
-  &__tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 3rem;
-    border-bottom: 1px solid $dark-brown;
-    flex-wrap: wrap;
-  }
-  
-  &__tab {
-    background: none;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: $cream;
-    cursor: pointer;
-    position: relative;
-    transition: $transition;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    letter-spacing: 2px;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background-color: $tan;
-      transition: $transition;
+    &__tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3rem;
+        gap: 1rem;
     }
-    
-    &.active {
-      color: $tan;
-      
-      &::after {
-        width: 100%;
-      }
+
+    &__tab {
+        background: transparent;
+        border: 1px solid $tan;
+        padding: 1rem 1.5rem;
+        border-radius: 5px;
+        color: $cream;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &.active,
+        &:hover {
+            background: rgba($light-brown, 0.2);
+            box-shadow: 0 4px 15px rgba($light-brown, 0.3);
+        }
+
+        .day-name {
+            display: block;
+            font-weight: 600;
+        }
+
+        .day-date {
+            display: block;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-family: 'Roboto', 'Arial', sans-serif;
+        }
     }
-    
-    &:not(.active) {
-      opacity: 0.7;
+
+    &__content {
+        display: none;
+
+        &.active {
+            display: block;
+        }
     }
-  }
-  
-  &__content {
-    display: none;
-    
-    &.active {
-      display: block;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        background: rgba($dark-brown, 0.6);
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border-radius: 5px;
+        border-left: 4px solid $light-brown;
+        box-shadow: 0 2px 10px rgba($black, 0.3);
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateX(10px);
+            box-shadow: 0 4px 15px rgba($light-brown, 0.2);
+        }
     }
-  }
-  
-  &__item {
-    display: flex;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba($dark-brown, 0.5);
-    align-items: center;
-    
-    &:last-child {
-      border-bottom: none;
+
+    &__time {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $tan;
+        min-width: 100px;
+        font-family: 'Roboto', 'Arial', sans-serif;
     }
-  }
-  
-  &__time {
-    min-width: 100px;
-    text-align: center;
-    font-weight: 700;
-    font-size: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
-    color: $tan;
-    
-    span:last-child {
-      font-size: 0.8rem;
-      opacity: 0.7;
+
+    &__info {
+        flex: 1;
+        margin: 0 1rem;
+
+        h3 {
+            color: $cream;
+            margin-bottom: 0.25rem;
+            font-family: 'Anton', sans-serif;
+            font-weight: 600;
+        }
+
+        p {
+            color: rgba($cream, 0.8);
+        }
     }
-  }
-  
-  &__info {
-    flex: 1;
-    
-    h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.3rem;
-      color: $cream;
-      letter-spacing: 2px;
+
+    .stage-badge {
+        background: $light-brown;
+        color: $black;
+        padding: 0.25rem 0.5rem;
+        border-radius: 3px;
+        font-size: 0.8rem;
+        font-weight: 600;
     }
-    
-    p {
-      color: rgba($cream, 0.7);
-      font-size: 0.9rem;
-    }
-  }
-  
-  &__stage {
-    min-width: 120px;
-    text-align: right;
-  }
 }
 
-.day-name {
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-.day-date {
-  font-size: 0.8rem;
-  opacity: 0.7;
-  margin-top: 0.3rem;
-}
-
-.stage-badge {
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  font-size: 0.8rem;
-  font-weight: 400;
-  border: 1px solid $tan;
-  color: $tan;
-  letter-spacing: 1px;
-}
-
-// Tickets Section
+// Tickets section
 .tickets {
-  background-color: $black;
-  position: relative;
-  padding: 5rem 0;
-  
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 2rem;
-    position: relative;
-    
-    @include respond-to('medium') {
-      grid-template-columns: repeat(3, 1fr);
+    background: $medium-black;
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        font-family: 'Anton';
     }
-  }
 }
 
 .ticket {
-  background: $medium-black;
-  padding: 2.5rem 2rem;
-  text-align: center;
-  position: relative;
-  border: 1px solid $dark-brown;
-  transition: $transition;
-  
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    border-color: $medium-brown;
-  }
-  
-  h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: $tan;
-    letter-spacing: 3px;
-  }
-  
-  &__price {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: $cream;
-    
+    background: rgba($dark-brown, 0.8);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba($black, 0.3);
+    position: relative;
+    overflow: hidden;
+
     &::before {
-      content: '$';
-      font-size: 1.5rem;
-      vertical-align: top;
-      margin-right: 0.2rem;
-      color: $tan;
-    }
-  }
-  
-  ul {
-    margin-bottom: 2rem;
-    text-align: left;
-    
-    li {
-      margin-bottom: 0.8rem;
-      padding-left: 1.5rem;
-      position: relative;
-      color: $cream;
-      
-      &::before {
-        content: '+';
+        content: '';
         position: absolute;
+        top: 0;
         left: 0;
-        color: $tan;
-        font-weight: 700;
-      }
+        right: 0;
+        bottom: 0;
+        background-image: $secondary-background;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
     }
-  }
-  
-  &--featured {
-    border: 2px solid $tan;
-    transform: scale(1.05);
-    z-index: 1;
-    
+
+    > * {
+        position: relative;
+        z-index: 2;
+    }
+
     &:hover {
-      transform: translateY(-10px) scale(1.05);
+        transform: translateY(-10px);
+        box-shadow: 0 8px 25px rgba($light-brown, 0.2);
+
+        &::before {
+            opacity: 0.3;
+        }
     }
-  }
-  
-  &__badge {
-    position: absolute;
-    top: 0;
-    right: 2rem;
-    background-color: $tan;
-    color: $black;
-    padding: 0.5rem 1rem;
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-  }
+
+    &--featured {
+        border: 2px solid $tan;
+    }
+
+    &__badge {
+        background: $light-brown;
+        color: $black;
+        padding: 0.5rem;
+        border-radius: 3px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: inline-block;
+    }
+
+    h3 {
+        color: $tan;
+        margin-bottom: 1rem;
+        font-family: 'Storm Gust', sans-serif;
+        font-weight: 600;
+    }
+
+    &__price {
+        font-size: 3rem;
+        font-weight: 700;
+        color: $light-brown;
+        margin-bottom: 1rem;
+        font-family: 'Roboto', 'Arial', sans-serif;
+
+        &::after {
+            content: ' EUR';
+            font-size: 1.2rem;
+            font-family: 'Roboto', 'Arial', sans-serif;
+        }
+    }
+
+    ul {
+        list-style: none;
+        margin-bottom: 2rem;
+
+        li {
+            padding: 0.25rem 0;
+            border-bottom: 1px solid rgba($cream, 0.2);
+            color: $cream;
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    .btn {
+        background: transparent;
+        color: $cream;
+        border: 1px solid $tan;
+        padding: 1rem 1.5rem;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-block;
+
+        &:hover {
+            background: rgba($light-brown, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba($light-brown, 0.3);
+        }
+    }
 }
 
-// Contact Section
+// Contact section
 .contact {
-  background-color: $medium-black;
-  position: relative;
-  border-top: 1px solid $dark-brown;
-  
-  &__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    
-    @include respond-to('medium') {
-      grid-template-columns: 1fr 1fr;
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
     }
-  }
-  
-  &__item {
-    display: flex;
-    margin-bottom: 2rem;
-    
-    i {
-      font-size: 1.5rem;
-      color: $tan;
-      margin-right: 1.5rem;
-      min-width: 30px;
-      text-align: center;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        i {
+            font-size: 1.5rem;
+            color: $light-brown;
+            margin-right: 1rem;
+            width: 40px;
+        }
+
+        h3 {
+            color: $tan;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        p {
+            color: $cream;
+            font-family: 'Roboto', 'Arial', sans-serif;
+        }
     }
-    
-    div {
-      h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
-        color: $tan;
-        letter-spacing: 2px;
-      }
-      
-      p {
-        color: $cream;
-        font-size: 0.9rem;
-        line-height: 1.6;
-      }
+
+    &__social {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            border: 1px solid $tan;
+            color: $cream;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+
+            &:hover{
+                background: rgba($light-brown, 0.2);
+                transform: translateY(-3px);
+            }
+        }
     }
-  }
-  
-  &__social {
-    margin-top: 2rem;
-    
-    a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border: 1px solid rgba($tan, 0.5);
-      color: $tan;
-      margin-right: 1rem;
-      transition: $transition;
-      border-radius: 50%;
-      
-      &:hover {
-        border-color: $tan;
-        background-color: $tan;
-        color: $black;
-      }
+
+    &__copy {
+        border-top: 1px solid rgba($text-color, 0.2);
+        padding-top: $spacing-sm;
+        color: rgba($text-color, 0.6);
+        font-family: 'Roboto', 'Arial', sans-serif;
+
+        a {
+            color: $accent-color;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
-  }
-  
-  &__form {
-    .form-group {
-      margin-bottom: 1.5rem;
+
+    &__form {
+        .form-group {
+            margin-bottom: 1rem;
+
+            label {
+                display: block;
+                margin-bottom: 0.25rem;
+                color: $tan;
+                font-weight: 600;
+            }
+
+            input,
+            textarea {
+                width: 100%;
+                padding: 1rem;
+                background: transparent;
+                border: 1px solid $tan;
+                border-radius: 5px;
+                color: $cream;
+                font-family: 'Roboto', 'Arial', sans-serif;
+
+                &:focus {
+                    outline: none;
+                    border-color: $light-brown;
+                    box-shadow: 0 0 10px rgba($light-brown, 0.3);
+                }
+
+                &::placeholder {
+                    color: rgba($cream, 0.5);
+                }
+            }
+
+            textarea {
+                height: 120px;
+                resize: vertical;
+            }
+        }
+
+        .btn {
+            background: transparent;
+            color: $cream;
+            border: 1px solid $tan;
+            padding: 1rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: rgba($light-brown, 0.2);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba($light-brown, 0.3);
+            }
+        }
     }
-    
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 400;
-      color: $cream;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.9rem;
-    }
-    
-    input,
-    textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid rgba($tan, 0.5);
-      background-color: rgba($black, 0.3);
-      color: $cream;
-      transition: $transition;
-      
-      &:focus {
-        border-color: $tan;
-      }
-    }
-    
-    textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-  }
 }
 
 // Footer
 .footer {
-  background-color: $black;
-  padding: 3rem 0;
-  text-align: center;
-  border-top: 1px solid rgba($dark-brown, 0.5);
-  
-  &__logo {
-    margin-bottom: 1.5rem;
-    
-    h2 {
-      color: $tan;
-      font-size: 2rem;
-      letter-spacing: 5px;
-    }
-  }
-  
-  &__nav {
-    margin-bottom: 2rem;
-    
-    ul {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      
-      li {
-        margin: 0 1rem 1rem;
-        
-        a {
-          color: $cream;
-          font-weight: 400;
-          text-transform: uppercase;
-          font-size: 0.875rem;
-          letter-spacing: 2px;
-          
-          &:hover {
-            color: $tan;
-          }
-        }
-      }
-    }
-  }
-  
-  &__social {
-    margin-bottom: 2rem;
-    
-    a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border: 1px solid rgba($tan, 0.5);
-      color: $tan;
-      margin: 0 0.5rem;
-      transition: $transition;
-      border-radius: 50%;
-      
-      &:hover {
-        border-color: $tan;
-        background-color: $tan;
-        color: $black;
-      }
-    }
-  }
-  
-  &__copy {
-    color: rgba($cream, 0.7);
-    font-size: 0.875rem;
-    letter-spacing: 1px;
-    
-    a {
-      color: $tan;
-      
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-}
+    background: rgba($black, 0.9);
+    color: $cream;
+    padding: 3rem 0 2rem;
 
-// Mobile Menu
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 100%;
-  height: 100vh;
-  background-color: $black;
-  z-index: 200;
-  padding: 5rem 2rem;
-  transition: right 0.5s ease;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  
-  &.active {
-    right: 0;
-  }
-  
-  ul {
-    li {
-      margin-bottom: 2rem;
-      text-align: center;
-      
-      a {
-        color: $cream;
-        font-size: 2rem;
+    .container {
+        text-align: center;
+    }
+
+    &__logo h2 {
+        color: $tan;
+        margin-bottom: 2rem;
+        font-family: 'Anton', sans-serif;
         font-weight: 700;
-        text-transform: uppercase;
-        display: block;
-        padding: 0.5rem 0;
-        letter-spacing: 5px;
-        
-        &:hover {
-          color: $tan;
+    }
+
+    &__nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 2rem;
+        margin-bottom: 2rem;
+
+        a {
+            color: $cream;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $light-brown;
+            }
         }
-      }
     }
-  }
-}
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba($black, 0.8);
-  z-index: 150;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  
-  &.active {
-    opacity: 1;
-    visibility: visible;
-  }
-}
+    &__social {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
 
-// Additional Styling for Brown Accents
-.highlight {
-  color: $tan;
-}
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 1px solid $tan;
+            color: $cream;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
 
-.border-accent {
-  border-color: $medium-brown;
-  
-  &:hover {
-    border-color: $light-brown;
-  }
-}
-
-// Special Effects
-.glow {
-  text-shadow: 0 0 5px rgba($tan, 0.5);
-}
-
-// Utility Classes
-.text-center {
-  text-align: center;
-}
-
-@for $i from 1 through 5 {
-  .mt-#{$i} { margin-top: $i * 0.5rem; }
-  .mb-#{$i} { margin-bottom: $i * 0.5rem; }
-}
-
-// Animations
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.fade-in {
-  animation: fadeIn 1s ease-in;
-}
-
-// Custom Scrollbar with Brown Accents
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: $black;
-}
-
-::-webkit-scrollbar-thumb {
-  background: $dark-brown;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: $medium-brown;
-}
-
-// Responsive Adjustments
-@media (max-width: 767px) {
-  .section-title {
-    font-size: 2rem;
-  }
-  
-  .hero {
-    h1 {
-      font-size: 2.5rem;
+            &:hover {
+                background: rgba($light-brown, 0.2);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba($light-brown, 0.3);
+            }
+        }
     }
-    
-    h2 {
-      font-size: 1rem;
+
+    &__copy {
+        border-top: 1px solid rgba($cream, 0.2);
+        padding-top: 1rem;
+        color: rgba($cream, 0.6);
+        font-family: 'Roboto', 'Arial', sans-serif;
+
+        a {
+            color: $light-brown;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
-  }
-  
-  .schedule {
-    &__time {
-      min-width: 80px;
-      font-size: 1rem;
+}
+
+// Responsive design
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 3rem;
     }
-    
-    &__info {
-      h3 {
-        font-size: 1.1rem;
-      }
+
+    .contact__grid {
+        grid-template-columns: 1fr;
     }
-  }
-  
-  .ticket {
-    padding: 2rem 1.5rem;
-    
-    &__price {
-      font-size: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .header {
+        &__nav {
+            display: none;
+        }
+
+        &__toggle {
+            display: flex;
+        }
     }
-  }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .lineup__grid,
+    .tickets__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .schedule__tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .schedule__item {
+        flex-direction: column;
+        text-align: center;
+
+        &__time {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    .footer__nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .section-title h2{
+        font-size: 2rem;
+        font-family: 'Storm Gust';
+    }
+
+    .mobile-menu {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+// Utility classes
+.no-scroll {
+    overflow: hidden;
+}
+
+// Smooth scrolling
+html {
+    scroll-behavior: smooth;
+}
+
+// Animation for elements coming into view
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.artist,
+.ticket,
+.schedule__item {
+    animation: fadeInUp 0.6s ease-out;
 }

@@ -1,0 +1,28 @@
+@import 'variables';
+
+// Main background
+body {
+  background: $main-background;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
+}
+
+// Secondary background areas
+.container, .section {
+  background: $secondary-background;
+  background-size: cover;
+  background-position: center;
+}
+
+// Tickets with background image on hover
+.ticket {
+  transition: $transition-normal;
+  
+  &:hover {
+    background: $main-background;
+    background-size: cover;
+    background-position: center;
+  }
+}
