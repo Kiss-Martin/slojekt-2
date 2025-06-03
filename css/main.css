@@ -700,4 +700,116 @@ html {
   animation: fadeInUp 0.6s ease-out;
 }
 
+.warning-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  font-family: "Courier New", Courier, monospace;
+}
+.warning-popup.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.warning-popup .warning-content {
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  border: 2px solid #ff0000;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+  animation: popupGlow 2s infinite alternate;
+}
+.warning-popup .warning-content .warning-icon {
+  font-size: 4rem;
+  color: #ff0000;
+  margin-bottom: 20px;
+  animation: shake 0.5s infinite;
+}
+.warning-popup .warning-content .warning-title {
+  color: #ff0000;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.warning-popup .warning-content .warning-text {
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+.warning-popup .warning-content .warning-text p {
+  margin-bottom: 15px;
+}
+.warning-popup .warning-content .warning-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.warning-popup .warning-content .warning-buttons .warning-btn {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.warning-popup .warning-content .warning-buttons .warning-btn.btn-enter {
+  background: linear-gradient(45deg, #ff0000, #cc0000);
+  color: white;
+}
+.warning-popup .warning-content .warning-buttons .warning-btn.btn-enter:hover {
+  background: linear-gradient(45deg, #cc0000, #990000);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+.warning-popup .warning-content .warning-buttons .warning-btn.btn-leave {
+  background: linear-gradient(45deg, #666, #444);
+  color: white;
+}
+.warning-popup .warning-content .warning-buttons .warning-btn.btn-leave:hover {
+  background: linear-gradient(45deg, #444, #222);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes popupGlow {
+  from {
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+  }
+  to {
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.8);
+  }
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+body.popup-active {
+  overflow: hidden;
+}
+
 /*# sourceMappingURL=main.css.map */

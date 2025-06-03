@@ -9,6 +9,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="warning-popup" id="warningPopup">
+        <div class="warning-content">
+          <div class="warning-icon">
+            <i class="fas fa-skull-crossbones"></i>
+          </div>
+          <h2 class="warning-title">⚠️ FIGYELEM! ⚠️</h2>
+          <div class="warning-text">
+            <p><strong>Ez a weboldal extrém tartalmat tartalmaz!</strong></p>
+            <p>A FosFesztivál csak 18 éven felülieknek ajánlott. A tartalom durva humor, erős nyelvezet és felnőtt témák miatt nem alkalmas kiskorúak számára.</p>
+            <p>Folytatás csak saját felelősségre!</p>
+            <p>(Az előadók nem adtak engedélyt a képük felhasználására)</p>
+          </div>
+          <div class="warning-buttons">
+            <button class="warning-btn btn-enter" onclick="enterSite()">
+              <i class="fas fa-door-open"></i> BELÉPEK (18+)
+            </button>
+            <button class="warning-btn btn-leave" onclick="leaveSite()">
+              <i class="fas fa-times"></i> KILÉPEK
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      
     <header class="header">
         <div class="container">
             <div class="header__logo">
@@ -139,8 +165,8 @@
                         19:00
                     </div>
                     <div class="schedule__info">
-                        <h3>GATES OPEN</h3>
-                        <p>Main Entrance</p>
+                        <h3>KAPUNYITÁS</h3>
+                        <p>Főbejárat</p>
                     </div>
                     <div class="schedule__stage">
                         <span class="stage-badge">ENTRY</span>
@@ -152,7 +178,7 @@
                     </div>
                     <div class="schedule__info">
                         <h3>DEMON HUNTERS</h3>
-                        <p>Inferno Stage</p>
+                        <p>KakiKanyon</p>
                     </div>
                     <div class="schedule__stage">
                         <span class="stage-badge">INFERNO</span>
@@ -164,7 +190,7 @@
                     </div>
                     <div class="schedule__info">
                         <h3>HELLFIRE</h3>
-                        <p>Main Stage</p>
+                        <p>Nagyszínpad</p>
                     </div>
                     <div class="schedule__stage">
                         <span class="stage-badge">MAIN</span>
@@ -176,7 +202,7 @@
                     </div>
                     <div class="schedule__info">
                         <h3>DEATH BRINGERS</h3>
-                        <p>Main Stage</p>
+                        <p>Nagyszínpad</p>
                     </div>
                     <div class="schedule__stage">
                         <span class="stage-badge">MAIN</span>
@@ -189,8 +215,8 @@
                         18:00
                     </div>
                     <div class="schedule__info">
-                        <h3>GATES OPEN</h3>
-                        <p>Main Entrance</p>
+                        <h3>KAPUNYITÁS</h3>
+                        <p>Főbejárat</p>
                     </div>
                     <div class="schedule__stage">
                         <span class="stage-badge">ENTRY</span>
@@ -202,7 +228,7 @@
                     </div>
                     <div class="schedule__info">
                         <h3>METAL MILITIA</h3>
-                        <p>Inferno Stage</p>
+                        <p>KakiKanyon</p>
                     </div>
                     <div class="schedule__stage">
                         <span class="stage-badge">INFERNO</span>
@@ -214,7 +240,7 @@
                     </div>
                     <div class="schedule__info">
                         <h3>BLOOD RITUAL</h3>
-                        <p>Main Stage</p>
+                        <p>Nagyszínpad</p>
                     </div>
                     <div class="schedule__stage">
                         <span class="stage-badge">MAIN</span>
@@ -226,7 +252,7 @@
                     </div>
                     <div class="schedule__info">
                         <h3>ETERNAL DARKNESS</h3>
-                        <p>Main Stage</p>
+                        <p>Nagyszínpad</p>
                     </div>
                     <div class="schedule__stage">
                         <span class="stage-badge">MAIN</span>
@@ -239,8 +265,8 @@
                         18:00
                     </div>
                     <div class="schedule__info">
-                        <h3>GATES OPEN</h3>
-                        <p>Main Entrance</p>
+                        <h3>KAPUNYITÁS</h3>
+                        <p>Főbejárat</p>
                     </div>
                     <div class="schedule__stage">
                         <span class="stage-badge">ENTRY</span>
@@ -252,7 +278,7 @@
                     </div>
                     <div class="schedule__info">
                         <h3>DARK MESSIAH</h3>
-                        <p>Inferno Stage</p>
+                        <p>KakiKanyon</p>
                     </div>
                     <div class="schedule__stage">
                         <span class="stage-badge">INFERNO</span>
@@ -264,7 +290,7 @@
                     </div>
                     <div class="schedule__info">
                         <h3>IRON FIST</h3>
-                        <p>Main Stage</p>
+                        <p>Nagyszínpad</p>
                     </div>
                     <div class="schedule__stage">
                         <span class="stage-badge">MAIN</span>
@@ -276,7 +302,7 @@
                     </div>
                     <div class="schedule__info">
                         <h3>SKULL CRUSHER</h3>
-                        <p>Main Stage</p>
+                        <p>Nagyszínpad</p>
                     </div>
                     <div class="schedule__stage">
                         <span class="stage-badge">MAIN</span>
@@ -346,14 +372,14 @@
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h3>HELYSZÍN</h3>
-                            <p>Hellfire Grounds, 666 Metal Road<br>Headbanger Valley, HM 66642</p>
+                            <p>Trágár tér, 666 Véce Utca<br>Fejrázó Völgy, 9999</p>
                         </div>
                     </div>
                     <div class="contact__item">
                         <i class="fas fa-phone"></i>
                         <div>
-                            <h3>PHONE</h3>
-                            <p>+1 (666) 777-8888</p>
+                            <h3>TELEFOSNÁM</h3>
+                            <p>+36 (666) 777-8888</p>
                         </div>
                     </div>
                     <div class="contact__item">
@@ -422,9 +448,26 @@
     </footer>
 
     <script>
-        // JavaScript for the website functionality
+        function enterSite() {
+          const popup = document.getElementById('warningPopup');
+          popup.classList.add('hidden');
+          document.body.classList.remove('popup-active');
+        
+          sessionStorage.setItem('warningAccepted', 'true');
+        }
+
+        function leaveSite() {
+          window.location.href = 'https://jedlikinfo.jedlik.eu/timetable?class=12C&full=0';
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
-            // Header scroll effect
+          if (!sessionStorage.getItem('warningAccepted')) {
+            document.body.classList.add('popup-active');
+          } else {
+            document.getElementById('warningPopup').classList.add('hidden');
+          }
+        });
+        document.addEventListener('DOMContentLoaded', function() {
             const header = document.querySelector('.header');
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
@@ -434,7 +477,6 @@
                 }
             });
 
-            // Mobile menu toggle
             const menuToggle = document.querySelector('.header__toggle');
             const mobileMenu = document.querySelector('.mobile-menu');
             const overlay = document.querySelector('.overlay');
@@ -452,7 +494,6 @@
                 body.classList.remove('no-scroll');
             });
 
-            // Schedule tabs
             const scheduleTabs = document.querySelectorAll('.schedule__tab');
             const scheduleContents = document.querySelectorAll('.schedule__content');
 
@@ -460,17 +501,14 @@
                 tab.addEventListener('click', () => {
                     const day = tab.getAttribute('data-day');
                     
-                    // Remove active class from all tabs and contents
                     scheduleTabs.forEach(tab => tab.classList.remove('active'));
                     scheduleContents.forEach(content => content.classList.remove('active'));
                     
-                    // Add active class to clicked tab and corresponding content
                     tab.classList.add('active');
                     document.getElementById(day).classList.add('active');
                 });
             });
 
-            // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -484,7 +522,6 @@
                             behavior: 'smooth'
                         });
                         
-                        // Close mobile menu if open
                         mobileMenu.classList.remove('active');
                         overlay.classList.remove('active');
                         body.classList.remove('no-scroll');
