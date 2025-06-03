@@ -341,7 +341,8 @@ section {
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 100;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .tickets {
